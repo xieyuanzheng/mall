@@ -1,19 +1,9 @@
 package com.ufa.mall.entity;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
-@Entity
-@Table(name="demand")
 public class Demand {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @NotNull
     private String name;
-    @NotNull
     private String status;
-    @NotNull
     private String onlineTime;
 
     public int getId() {

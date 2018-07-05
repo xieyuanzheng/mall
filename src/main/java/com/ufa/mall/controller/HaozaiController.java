@@ -1,13 +1,15 @@
 package com.ufa.mall.controller;
 
-import com.ufa.mall.dao.DetailsDao;
-import com.ufa.mall.entity.Demand;
+
 import com.ufa.mall.entity.Details;
+import com.ufa.mall.mapper.DetailsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.lang.model.element.NestingKind;
 
 @Controller
 public class HaozaiController {
@@ -17,7 +19,7 @@ public class HaozaiController {
         return "haozai";
     }
 
-    @ResponseBody
+ /*   @ResponseBody
     @RequestMapping("/demand")
     public Demand getDemand(int id){
         Demand demand = new Demand();
@@ -26,12 +28,12 @@ public class HaozaiController {
         demand.setStatus("云测中");
         demand.setOnlineTime("2018-07-04");
         return demand;
-    }
+    }*/
 
-    @Autowired
-    DetailsDao detailsDao;
+    /*@Autowired
+    DetailsDao detailsDao;*/
 
-    @RequestMapping("/details")
+   /* @RequestMapping("/details")
     @ResponseBody
     public Details getDetail(int id){
         Details details = detailsDao.findById(id);
@@ -42,5 +44,16 @@ public class HaozaiController {
             return details;
         }
         return details;
+    }*/
+
+   @Autowired
+    DetailsMapper detailsMapper;
+
+    @ResponseBody
+    @RequestMapping("/queryDetail")
+    public Details getDetails(int id){
+        System.out.println("----------");
+        return detailsMapper.queryById(id);
     }
+
 }

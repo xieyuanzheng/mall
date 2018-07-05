@@ -1,17 +1,8 @@
 package com.ufa.mall.entity;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
-@Entity
-@Table(name="details")
 public class Details {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @NotNull
     private String name;
-    @NotNull
     private String description;
 
     public int getId() {
@@ -22,14 +13,6 @@ public class Details {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getName() {
         return name;
     }
@@ -38,10 +21,19 @@ public class Details {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public Details() {
     }
 
-    public Details(@NotNull String name, @NotNull String description) {
+    public Details(int id, String name, String description) {
+        this.id = id;
         this.name = name;
         this.description = description;
     }
